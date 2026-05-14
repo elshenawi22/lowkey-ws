@@ -1,0 +1,39 @@
+<footer class="c-bg">
+  <div class="sep-gold"></div>
+  <div style="padding:4rem clamp(1.25rem,3vw,3.5rem)">
+    <div class="foot__email-row rv">
+      {%- form 'customer', id: 'footer-email' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" name="contact[email]" placeholder="{{ section.settings.placeholder | default: 'Email for early access' }}" required class="foot__email-in">
+        <button type="submit" class="foot__email-btn tap">Join</button>
+      {%- endform -%}
+    </div>
+  </div>
+  <div class="sep" style="margin:0 clamp(1.25rem,3vw,3.5rem)"></div>
+  <div style="padding:4rem clamp(1.25rem,3vw,3.5rem)" class="rv">
+    <div class="foot__bottom">
+      <a href="/" class="foot__logo tap-xs">{{ section.settings.logo | default: 'LOWKEY' }}</a>
+      <p class="foot__slogan">Not Made For All.</p>
+      <div class="foot__links">
+        {%- for link in linklists[section.settings.footer_menu].links -%}
+          <a href="{{ link.url }}" class="foot__link tap">{{ link.title }}</a>
+          {%- unless forloop.last -%}<span class="foot__sep"></span>{%- endunless -%}
+        {%- endfor -%}
+        {%- if linklists[section.settings.footer_menu].links.size == 0 -%}
+          <a href="#" class="foot__link tap">Instagram</a><span class="foot__sep"></span><a href="#" class="foot__link tap">Contact</a>
+        {%- endif -%}
+      </div>
+      <p class="foot__copy">© {{ 'now' | date: '%Y' }}</p>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "logo", "default": "LOWKEY" },
+    { "type": "text", "id": "placeholder", "default": "Email for early access" },
+    { "type": "link_list", "id": "footer_menu", "label": "Footer Menu", "default": "footer" }
+  ]
+}
+{% endschema %}

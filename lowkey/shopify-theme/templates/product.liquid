@@ -1,0 +1,44 @@
+{%- assign fallback_img = 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80&auto=format' -%}
+<div class="pp px">
+  <a href="{{ collection.url | default: '/collections' }}" class="c-fg3 tap" style="display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 0;font-size:0.5625rem;letter-spacing:0.3em;text-transform:uppercase">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7-7l-7 7 7 7"/></svg>
+    Back
+  </a>
+  <div class="pp__grid">
+    <div class="pp__img rv">
+      {%- if product.featured_image != blank -%}
+        <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.title }}" loading="eager">
+      {%- else -%}
+        <img src="{{ fallback_img }}" alt="{{ product.title }}" loading="eager">
+      {%- endif -%}
+    </div>
+    <div class="pp__info rv rv-d1">
+      <p class="c-gold2" style="font-size:0.5rem;letter-spacing:0.4em;text-transform:uppercase;margin-bottom:1rem">{{ product.type | default: 'LOWKEY' }}</p>
+      <h1 class="h-lg c-fg">{{ product.title }}</h1>
+      <p class="c-fg2" style="font-family:'Space Grotesk',sans-serif;font-size:1.125rem;letter-spacing:0.1em;margin-top:0.75rem">{{ product.price | money }}</p>
+      <div class="sep" style="margin:1.5rem 0"></div>
+      {%- if product.description != blank -%}<p class="c-fg2" style="font-size:0.75rem;font-weight:300;line-height:2">{{ product.description }}</p>{%- endif -%}
+      {%- if product.variants.size > 1 -%}
+        {%- for option in product.options_with_values -%}
+          <div style="margin-top:1.5rem">
+            <p class="c-gold2" style="font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:0.75rem">{{ option.name }}</p>
+            <div class="pp__sizes">
+              {%- for variant in product.variants -%}
+                <button class="pp__size tap" data-variant="{{ variant.id }}" {% unless variant.available %}disabled style="opacity:0.3"{% endunless %}>{{ variant.title }}</button>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+      <button class="pp__add tap-sm" data-variant="{{ product.selected_or_first_available_variant.id }}" {% if product.variants.size > 1 %}disabled{% endif %}>
+        {%- if product.available -%}{%- if product.variants.size > 1 -%}Select Size{%- else -%}Add to Bag{%- endif -%}{%- else -%}Sold Out{%- endif -%}
+      </button>
+      <div style="margin-top:2rem">
+        <p class="c-gold2" style="font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:0.75rem">Details</p>
+        <div class="pp__spec"><span>Premium Quality</span></div>
+        <div class="pp__spec"><span>Designed in Port Said</span></div>
+        <div class="pp__spec"><span>Free Worldwide Shipping</span></div>
+      </div>
+    </div>
+  </div>
+</div>

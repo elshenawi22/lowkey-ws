@@ -1,0 +1,72 @@
+{%- assign fallback_imgs = 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80&auto=format,https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80&auto=format,https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80&auto=format,https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80&auto=format' | split: ',' -%}
+
+<section class="c-inv-bg" style="padding-top:7rem;padding-bottom:6rem;min-height:100vh">
+  <div class="px" style="margin-bottom:3rem">
+    <p class="c-inv-fg2" style="font-size:0.5625rem;letter-spacing:0.5em;text-transform:uppercase;margin-bottom:0.75rem">Drop 001</p>
+    <h1 class="h-lg c-inv-fg">The Collection</h1>
+    <div class="line-inv" style="margin-top:1.5rem"></div>
+    <p class="c-inv-fg2" style="font-size:0.75rem;font-weight:300;line-height:2;margin-top:1rem;max-width:28rem">Eight essential pieces. Stripped of excess. Built around fit, fabric, and feeling.</p>
+  </div>
+
+  <div class="px">
+    {%- assign has_products = false -%}
+
+    {%- comment -%} Show all products from all collections {%- endcomment -%}
+    {%- for collection in collections -%}
+      {%- if collection.products.size > 0 -%}
+        {%- assign has_products = true -%}
+
+        {%- if collections.size > 1 -%}
+          <h2 class="c-inv-fg rv" style="font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:300;letter-spacing:0.05em;margin-bottom:1.5rem;margin-top:2rem">{{ collection.title }}</h2>
+        {%- endif -%}
+
+        <div class="coll-grid" style="margin-bottom:3rem">
+          {%- for product in collection.products -%}
+            <a href="{{ product.url }}" class="pcard rv tap-sm" style="transition-delay:{{ forloop.index | times: 60 }}ms">
+              <div class="pcard__img">
+                {%- if product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy">
+                {%- else -%}
+                  {%- assign fb_idx = forloop.index0 | modulo: 4 -%}
+                  <img src="{{ fallback_imgs[fb_idx] }}" alt="{{ product.title }}" loading="lazy">
+                {%- endif -%}
+                <div class="pcard__hover"><span>View Piece</span><div class="pcard__hover-line"></div></div>
+              </div>
+              <div class="pcard__info">
+                <h3 class="pcard__name">{{ product.title }}</h3>
+                <p class="pcard__det">{{ product.price | money }}</p>
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- comment -%} Fallback: show placeholders if no products exist {%- endcomment -%}
+    {%- unless has_products -%}
+      {%- assign p_names = 'Essential Hoodie,Washed Tee,Cargo Pant,Bomber Jacket,Heavyweight Sweatpant,Mock Neck,Canvas Cap,Essential Shorts' | split: ',' -%}
+      {%- assign p_details = '€185,€95,€210,€340,€165,€120,€55,€125' | split: ',' -%}
+      <div class="coll-grid">
+        {%- for i in (0..7) -%}
+          <div class="pcard rv" style="transition-delay:{{ forloop.index | times: 60 }}ms">
+            <div class="pcard__img">
+              {%- assign fb_idx = i | modulo: 4 -%}
+              <img src="{{ fallback_imgs[fb_idx] }}" alt="{{ p_names[i] }}" loading="lazy">
+              <div class="pcard__hover"><span>View Piece</span><div class="pcard__hover-line"></div></div>
+            </div>
+            <div class="pcard__info">
+              <h3 class="pcard__name">{{ p_names[i] }}</h3>
+              <p class="pcard__det">{{ p_details[i] }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div style="text-align:center;margin-top:3rem">
+        <p class="c-inv-fg2" style="font-size:0.6875rem;letter-spacing:0.2em;line-height:2;max-width:24rem;margin:0 auto">
+          Add products in Shopify Admin → Products to see them here.
+        </p>
+      </div>
+    {%- endunless -%}
+  </div>
+</section>

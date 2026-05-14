@@ -1,0 +1,32 @@
+{%- assign fallback_img = 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80&auto=format' -%}
+<section class="c-inv-bg" style="padding-top:7rem;padding-bottom:6rem;min-height:100vh">
+  <div class="px" style="margin-bottom:3rem">
+    <p class="c-inv-fg2" style="font-size:0.5625rem;letter-spacing:0.5em;text-transform:uppercase;margin-bottom:0.75rem">Collection</p>
+    <h1 class="h-lg c-inv-fg">{{ collection.title }}</h1>
+    <div class="line-inv" style="margin-top:1.5rem"></div>
+    {%- if collection.description != blank -%}
+      <p class="c-inv-fg2" style="font-size:0.75rem;font-weight:300;line-height:2;margin-top:1rem;max-width:28rem">{{ collection.description }}</p>
+    {%- endif -%}
+  </div>
+  <div class="px">
+    {%- if collection.products.size > 0 -%}
+      <div class="coll-grid">
+        {%- for product in collection.products -%}
+          <a href="{{ product.url }}" class="pcard rv tap-sm" style="transition-delay:{{ forloop.index | times: 60 }}ms">
+            <div class="pcard__img">
+              {%- if product.featured_image != blank -%}
+                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy">
+              {%- else -%}
+                <img src="{{ fallback_img }}" alt="{{ product.title }}" loading="lazy">
+              {%- endif -%}
+              <div class="pcard__hover"><span>View Piece</span><div class="pcard__hover-line"></div></div>
+            </div>
+            <div class="pcard__info"><h3 class="pcard__name">{{ product.title }}</h3><p class="pcard__det">{{ product.price | money }}</p></div>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="c-inv-fg2" style="text-align:center;padding:6rem 0;font-size:0.6875rem;letter-spacing:0.3em;text-transform:uppercase">No products yet</p>
+    {%- endif -%}
+  </div>
+</section>

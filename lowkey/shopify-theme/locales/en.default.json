@@ -1,0 +1,24 @@
+{
+  "general": {
+    "404": {
+      "title": "Page not found",
+      "subtext": "The page you requested does not exist."
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Bag",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Bag",
+      "empty": "Your bag is empty",
+      "continue_shopping": "Continue Shopping",
+      "checkout": "Checkout",
+      "remove": "Remove"
+    }
+  }
+}

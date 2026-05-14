@@ -1,0 +1,220 @@
+{%- assign hero_img = 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1920&q=80&auto=format' -%}
+{%- assign prod1_img = 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80&auto=format' -%}
+{%- assign prod2_img = 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80&auto=format' -%}
+{%- assign prod3_img = 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80&auto=format' -%}
+{%- assign prod4_img = 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80&auto=format' -%}
+{%- assign texture_img = 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1920&q=80&auto=format' -%}
+{%- assign look1_img = 'https://images.unsplash.com/photo-1579572331145-5e53b299c64e?w=1000&q=80&auto=format' -%}
+{%- assign look2_img = 'https://images.unsplash.com/photo-1516826957135-700dedea698c?w=1000&q=80&auto=format' -%}
+{%- assign drop_img = 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&q=80&auto=format' -%}
+
+<!-- ======== HERO — fullscreen, centered LOWKEY + slogan ======== -->
+<section style="position:relative;height:100dvh;width:100%;overflow:hidden;background:var(--c-bg)">
+  <!-- Background image with parallax -->
+  <div class="hero__img-wrap" style="position:absolute;inset:-3%;width:106%;height:106%;transition:transform 2.5s ease-out">
+    <img src="{{ hero_img }}" alt="{{ shop.name }}" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:brightness(var(--c-img));opacity:0.6" loading="eager">
+  </div>
+  <!-- Gradient overlays -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,var(--c-hero-o1),transparent,var(--c-hero-o2))"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 35%,var(--c-hero-vig) 100%)"></div>
+  <!-- Center content -->
+  <div style="position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 1.25rem">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(3.25rem,10vw,6.25rem);font-weight:600;letter-spacing:0.24em;color:var(--c-fg);text-align:center;line-height:1">LOWKEY</h1>
+    <p style="color:var(--c-gold);font-size:clamp(0.6875rem,1.2vw,0.875rem);letter-spacing:0.5em;text-transform:uppercase;font-weight:300;text-align:center;margin-top:1.5rem">Not Made For All.</p>
+    <div style="width:3rem;height:0.5px;background:linear-gradient(to right,transparent,var(--c-gold2),transparent);margin:3rem auto 0"></div>
+    <a href="#products" style="display:inline-flex;margin-top:2rem;padding:0.5rem 1rem;color:var(--c-fg3);font-size:0.5625rem;letter-spacing:0.35em;text-transform:uppercase">Explore the Collection</a>
+  </div>
+  <!-- Bottom labels -->
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:0 clamp(1.25rem,3vw,3.5rem) 1.75rem;display:flex;align-items:flex-end;justify-content:space-between">
+    <span style="color:var(--c-fg4);font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase">SS25</span>
+    <div style="width:0.5px;height:1.75rem;background:linear-gradient(to bottom,transparent,var(--c-gold3));animation:scrollPulse 3s ease-in-out infinite"></div>
+    <span style="color:var(--c-fg4);font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase">Drop 001</span>
+  </div>
+</section>
+
+<!-- ======== STATEMENT — LOWKEY / Not Made For All ======== -->
+<section style="padding:8rem 0;background:var(--c-bg2);text-align:center">
+  <div style="padding:0 clamp(1.25rem,3vw,3.5rem)">
+    <div class="rv-scale" style="width:1.5rem;height:0.5px;background:linear-gradient(to right,transparent,var(--c-gold2),transparent);margin:0 auto 2.5rem"></div>
+    <p class="rv" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(0.875rem,1.2vw,1rem);font-weight:600;letter-spacing:0.5em;color:var(--c-fg)">LOWKEY</p>
+    <p class="rv rv-d1" style="margin-top:1rem;color:var(--c-gold);font-size:clamp(0.625rem,0.9vw,0.6875rem);letter-spacing:0.5em;text-transform:uppercase;font-weight:300">Not Made For All.</p>
+    <div class="rv-scale rv-d2" style="width:1.5rem;height:0.5px;background:linear-gradient(to right,transparent,var(--c-gold2),transparent);margin:2.5rem auto 0"></div>
+  </div>
+</section>
+
+<!-- ======== PRODUCTS — inverted bg (cream/dark), 4 cards ======== -->
+<section id="products" style="padding:6rem 0;background:var(--c-inv-bg)">
+  <div style="padding:0 clamp(1.25rem,3vw,3.5rem);margin-bottom:3rem">
+    <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between">
+      <div>
+        <p style="color:var(--c-inv-fg2);font-size:0.5625rem;letter-spacing:0.5em;text-transform:uppercase;margin-bottom:0.75rem">Collection</p>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.875rem,4vw,2.875rem);font-weight:300;letter-spacing:-0.01em;color:var(--c-inv-fg)">Essentials</h2>
+      </div>
+      <a href="/collections" class="view-all tap" style="display:none;align-items:center;gap:0.75rem"><span style="color:var(--c-inv-fg2);font-size:0.5625rem;letter-spacing:0.3em;text-transform:uppercase">View All</span><span style="width:1.25rem;height:0.5px;background:var(--c-inv-gold);display:block"></span></a>
+    </div>
+    <div class="rv-scale rv-d1" style="height:0.5px;background:linear-gradient(to right,var(--c-inv-line),transparent);margin-top:1.5rem"></div>
+  </div>
+  <style>.view-all{display:none!important}@media(min-width:768px){.view-all{display:flex!important}}</style>
+
+  <div style="padding:0 clamp(1.25rem,3vw,3.5rem)">
+    <!-- Mobile: horizontal scroll -->
+    <div class="prod-scroll" style="display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none">
+      {%- assign show_real = false -%}
+      {%- for c in collections -%}{%- if c.products.size > 0 -%}{%- assign show_real = true -%}{%- assign first_coll = c -%}{%- break -%}{%- endif -%}{%- endfor -%}
+
+      {%- if show_real -%}
+        {%- for product in first_coll.products limit: 4 -%}
+          <a href="{{ product.url }}" class="rv" style="flex-shrink:0;width:70vw;scroll-snap-align:start;cursor:pointer;transition-delay:{{ forloop.index | times: 100 }}ms">
+            <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--c-bg3)">
+              <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(var(--c-img))">
+              <div class="pcard__hover"><span>View Piece</span><div class="pcard__hover-line"></div></div>
+            </div>
+            <div style="margin-top:1rem"><h3 style="font-family:'Space Grotesk',sans-serif;font-size:0.875rem;font-weight:500;letter-spacing:0.02em;color:var(--c-inv-fg)">{{ product.title }}</h3><p style="color:var(--c-inv-fg2);font-size:0.5625rem;letter-spacing:0.15em;margin-top:0.25rem">{{ product.price | money }}</p></div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- assign p_names = 'Essential Hoodie,Washed Tee,Cargo Pant,Bomber Jacket' | split: ',' -%}
+        {%- assign p_details = '400gsm · Black · €185,Garment Dyed · Off-White · €95,Relaxed · Black · €210,Water Resistant · Olive · €340' | split: ',' -%}
+        {%- assign p_imgs = prod1_img | append: '||' | append: prod2_img | append: '||' | append: prod3_img | append: '||' | append: prod4_img | split: '||' -%}
+        {%- for i in (0..3) -%}
+          <div class="rv" style="flex-shrink:0;width:70vw;scroll-snap-align:start;transition-delay:{{ forloop.index | times: 100 }}ms">
+            <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--c-bg3)">
+              <img src="{{ p_imgs[i] }}" alt="{{ p_names[i] }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(var(--c-img))">
+              <div class="pcard__hover"><span>View Piece</span><div class="pcard__hover-line"></div></div>
+            </div>
+            <div style="margin-top:1rem"><h3 style="font-family:'Space Grotesk',sans-serif;font-size:0.875rem;font-weight:500;letter-spacing:0.02em;color:var(--c-inv-fg)">{{ p_names[i] }}</h3><p style="color:var(--c-inv-fg2);font-size:0.5625rem;letter-spacing:0.15em;margin-top:0.25rem">{{ p_details[i] }}</p></div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <style>.prod-scroll::-webkit-scrollbar{display:none}@media(min-width:768px){.prod-scroll{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:1.75rem!important;overflow:visible!important}.prod-scroll>*{width:auto!important}}</style>
+  </div>
+
+  <!-- Mobile CTA -->
+  <div style="padding:0 clamp(1.25rem,3vw,3.5rem);margin-top:2rem" class="mob-only">
+    <a href="/collections" style="display:block;padding:1rem;border:1px solid var(--c-inv-line);text-align:center;color:var(--c-inv-fg2);font-size:0.5625rem;letter-spacing:0.35em;text-transform:uppercase">View All Pieces</a>
+  </div>
+  <style>@media(min-width:768px){.mob-only{display:none}}</style>
+</section>
+
+<!-- ======== TEXTURE — full-width hero + 3 detail shots + specs ======== -->
+<section style="background:var(--c-bg);overflow:hidden">
+  <!-- Full-width texture image -->
+  <div class="rv-fade" style="position:relative;overflow:hidden">
+    <div style="aspect-ratio:16/7;overflow:hidden"><img src="{{ texture_img }}" alt="Fabric" loading="lazy" class="drift" style="width:100%;height:100%;object-fit:cover;filter:brightness(var(--c-img))"></div>
+    <style>@media(min-width:768px){.rv-fade>[style*="aspect-ratio"]{aspect-ratio:21/9!important}}</style>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,var(--c-bg),transparent 50%,var(--c-bg));opacity:0.5"></div>
+    <p class="rv rv-d2" style="position:absolute;bottom:1.5rem;left:clamp(1.25rem,3vw,3.5rem);color:var(--c-gold);font-size:0.5625rem;letter-spacing:0.4em;text-transform:uppercase">400gsm Heavyweight Cotton</p>
+  </div>
+  <!-- Title -->
+  <div style="padding:4rem clamp(1.25rem,3vw,3.5rem) 3rem">
+    <h2 class="rv" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:300;letter-spacing:-0.01em;color:var(--c-fg)">Built to Last.</h2>
+  </div>
+  <!-- 3 detail shots -->
+  <div style="padding:0 clamp(1.25rem,3vw,3.5rem) 2rem">
+    <div class="rv" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem">
+      <div style="position:relative;aspect-ratio:1;overflow:hidden;background:var(--c-bg3)">
+        <img src="{{ texture_img }}" alt="Weave" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:30% 60%;filter:brightness(var(--c-img));transform:scale(1.6)">
+        <p style="position:absolute;bottom:0.75rem;left:0.75rem;color:var(--c-gold2);font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase">Weave</p>
+      </div>
+      <div style="position:relative;aspect-ratio:1;overflow:hidden;background:var(--c-bg3)">
+        <img src="{{ prod1_img }}" alt="Fold" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:40% 35%;filter:brightness(var(--c-img));transform:scale(1.8)">
+        <p style="position:absolute;bottom:0.75rem;left:0.75rem;color:var(--c-gold2);font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase">Fold</p>
+      </div>
+      <div style="position:relative;aspect-ratio:1;overflow:hidden;background:var(--c-bg3)">
+        <img src="{{ prod2_img }}" alt="Rib" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:brightness(var(--c-img));transform:scale(2)">
+        <p style="position:absolute;bottom:0.75rem;left:0.75rem;color:var(--c-gold2);font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase">Rib</p>
+      </div>
+    </div>
+    <style>@media(min-width:768px){.rv>[style*="grid-template"]{gap:0.75rem!important}}</style>
+  </div>
+  <!-- Specs -->
+  <div style="padding:1rem clamp(1.25rem,3vw,3.5rem) 6rem">
+    <div class="rv tex-specs" style="display:grid;grid-template-columns:repeat(2,1fr)">
+      <div style="padding:1.25rem 0.25rem;border-top:1px solid var(--c-gold3)"><p style="color:var(--c-gold2);font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:0.5rem">Weight</p><p style="color:var(--c-fg2);font-size:0.6875rem;font-weight:300;letter-spacing:0.1em">400gsm</p></div>
+      <div style="padding:1.25rem 0.25rem;border-top:1px solid var(--c-gold3)"><p style="color:var(--c-gold2);font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:0.5rem">Process</p><p style="color:var(--c-fg2);font-size:0.6875rem;font-weight:300;letter-spacing:0.1em">Garment-Dyed</p></div>
+      <div style="padding:1.25rem 0.25rem;border-top:1px solid var(--c-gold3)"><p style="color:var(--c-gold2);font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:0.5rem">Origin</p><p style="color:var(--c-fg2);font-size:0.6875rem;font-weight:300;letter-spacing:0.1em">Designed in Port Said</p></div>
+      <div style="padding:1.25rem 0.25rem;border-top:1px solid var(--c-gold3)"><p style="color:var(--c-gold2);font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:0.5rem">Fit</p><p style="color:var(--c-fg2);font-size:0.6875rem;font-weight:300;letter-spacing:0.1em">Relaxed Oversized</p></div>
+    </div>
+    <style>@media(min-width:768px){.tex-specs{grid-template-columns:repeat(4,1fr)!important}}</style>
+  </div>
+</section>
+
+<!-- ======== LOOKBOOK — 2 campaign images ======== -->
+<section id="lookbook" style="padding:6rem 0;background:var(--c-bg2)">
+  <style>@media(min-width:768px){#lookbook{padding:9rem 0!important}}@media(min-width:1024px){#lookbook{padding:11rem 0!important}}</style>
+  <div style="padding:0 clamp(1.25rem,3vw,3.5rem)">
+    <div class="rv" style="margin-bottom:3.5rem">
+      <p style="color:var(--c-gold2);font-size:0.5625rem;letter-spacing:0.5em;text-transform:uppercase;margin-bottom:0.75rem">Lookbook</p>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:300;letter-spacing:-0.01em;color:var(--c-fg)">Campaign</h2>
+      <div class="rv-scale rv-d1" style="height:0.5px;background:linear-gradient(to right,var(--c-gold3),transparent);margin-top:1.5rem"></div>
+    </div>
+    <div class="look-grid" style="display:grid;grid-template-columns:1fr;gap:1rem">
+      <div class="rv tap-sm" style="cursor:pointer">
+        <div style="aspect-ratio:3/4;overflow:hidden;background:var(--c-bg3)"><img src="{{ look1_img }}" alt="Look 01" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(var(--c-img));transition:transform 1.4s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <p style="margin-top:1rem;color:var(--c-gold2);font-size:0.5625rem;letter-spacing:0.3em;text-transform:uppercase">Look 01</p>
+      </div>
+      <div class="rv rv-d1 tap-sm" style="cursor:pointer">
+        <div style="aspect-ratio:3/4;overflow:hidden;background:var(--c-bg3)"><img src="{{ look2_img }}" alt="Look 02" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(var(--c-img));transition:transform 1.4s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <p style="margin-top:1rem;color:var(--c-gold2);font-size:0.5625rem;letter-spacing:0.3em;text-transform:uppercase">Look 02</p>
+      </div>
+    </div>
+    <style>@media(min-width:768px){.look-grid{grid-template-columns:1fr 1fr!important;gap:1.5rem!important}}</style>
+  </div>
+</section>
+
+<!-- ======== PHILOSOPHY — inverted bg, one line ======== -->
+<section id="philosophy" style="padding:8rem clamp(1.25rem,3vw,3.5rem);background:var(--c-inv-bg);text-align:center">
+  <style>@media(min-width:768px){#philosophy{padding:11rem clamp(1.25rem,3vw,3.5rem)!important}}@media(min-width:1024px){#philosophy{padding:14rem clamp(1.25rem,3vw,3.5rem)!important}}</style>
+  <div class="rv" style="max-width:36rem;margin:0 auto">
+    <div class="rv-scale" style="width:2rem;height:0.5px;background:linear-gradient(to right,transparent,var(--c-inv-gold),transparent);margin:0 auto"></div>
+    <p style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.25rem,2.8vw,2rem);font-weight:300;line-height:1.8;letter-spacing:0.02em;color:var(--c-inv-fg);opacity:0.65;max-width:36rem;margin:0 auto;padding:4rem 0">LOWKEY is built around quiet identity and understated presence.</p>
+    <div class="rv-scale rv-d2" style="width:2rem;height:0.5px;background:linear-gradient(to right,transparent,var(--c-inv-gold),transparent);margin:0 auto"></div>
+  </div>
+</section>
+
+<!-- ======== DROP 001 — watermark + image + stats ======== -->
+<section id="drop" style="position:relative;overflow:hidden;background:var(--c-bg)">
+  <!-- Watermark "001" -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Space Grotesk',sans-serif;font-size:35vw;font-weight:700;color:var(--c-gold3);letter-spacing:-0.05em;pointer-events:none;user-select:none">001</div>
+  <style>@media(min-width:768px){#drop>[style*="font-size:35vw"]{font-size:24vw!important}}</style>
+
+  <div style="padding:6rem clamp(1.25rem,3vw,3.5rem);position:relative">
+    <style>@media(min-width:768px){#drop>div:last-child{padding-top:9rem!important;padding-bottom:9rem!important}}@media(min-width:1024px){#drop>div:last-child{padding-top:11rem!important;padding-bottom:11rem!important}}</style>
+    <!-- Header -->
+    <div class="rv" style="margin-bottom:3.5rem">
+      <p style="color:var(--c-gold2);font-size:0.5625rem;letter-spacing:0.5em;text-transform:uppercase;margin-bottom:0.75rem">Latest Release</p>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5.5vw,3.5rem);font-weight:300;letter-spacing:-0.02em;color:var(--c-fg);line-height:1">Drop <span style="color:var(--c-gold)">001</span></h2>
+      <div class="rv-scale rv-d1" style="height:0.5px;background:linear-gradient(to right,var(--c-gold3),transparent);margin-top:1.5rem"></div>
+    </div>
+    <!-- Content grid -->
+    <div class="drop-grid" style="display:grid;grid-template-columns:1fr;gap:2rem">
+      <!-- Image -->
+      <div class="rv tap-sm" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--c-bg3);cursor:pointer">
+        <img src="{{ drop_img }}" alt="Drop 001" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(var(--c-img));transition:transform 1.2s" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,var(--c-bg),transparent 50%);opacity:0.4;pointer-events:none"></div>
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem"><p style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,2vw,1.375rem);font-weight:300;color:var(--c-fg2);line-height:1.4">"Less noise.<br>More intention."</p></div>
+      </div>
+      <!-- Info -->
+      <div style="display:flex;flex-direction:column;justify-content:space-between;gap:2.5rem">
+        <p class="rv" style="color:var(--c-fg2);font-size:0.75rem;font-weight:300;line-height:2.2;max-width:28rem">Eight essential pieces. Stripped of excess. Built around fit, fabric, and feeling. Each garment is numbered. Limited to 200 units.</p>
+        <div class="rv rv-d1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem">
+          <div style="text-align:center;padding:1.5rem 0;border:1px solid var(--c-gold3)"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(1.375rem,2.5vw,1.625rem);font-weight:300;color:var(--c-gold);letter-spacing:-0.02em;margin-bottom:0.5rem">08</span><span style="color:var(--c-fg4);font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase">Pieces</span></div>
+          <div style="text-align:center;padding:1.5rem 0;border:1px solid var(--c-gold3)"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(1.375rem,2.5vw,1.625rem);font-weight:300;color:var(--c-gold);letter-spacing:-0.02em;margin-bottom:0.5rem">200</span><span style="color:var(--c-fg4);font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase">Per Style</span></div>
+          <div style="text-align:center;padding:1.5rem 0;border:1px solid var(--c-gold3)"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(1.375rem,2.5vw,1.625rem);font-weight:300;color:var(--c-gold);letter-spacing:-0.02em;margin-bottom:0.5rem">01</span><span style="color:var(--c-fg4);font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase">Drop</span></div>
+        </div>
+        <a href="/collections" class="rv rv-d2 tap-sm" style="display:block;padding:1.25rem;text-align:center;border:1px solid var(--c-gold3);color:var(--c-gold);font-size:0.5625rem;letter-spacing:0.4em;text-transform:uppercase;font-weight:300">Enter Drop 001</a>
+      </div>
+    </div>
+    <style>@media(min-width:1024px){.drop-grid{grid-template-columns:7fr 5fr!important;gap:3rem!important}}</style>
+  </div>
+</section>
+
+<!-- ======== MARQUEE — infinite scroll ======== -->
+<section class="mrq c-bg2">
+  <div class="mrq__fade-l"></div><div class="mrq__fade-r"></div>
+  <div class="mrq__track">
+    <span class="mrq__text">{%- for i in (1..30) -%}NOT MADE FOR ALL — {%- endfor -%}</span>
+    <span class="mrq__text" aria-hidden="true">{%- for i in (1..30) -%}NOT MADE FOR ALL — {%- endfor -%}</span>
+  </div>
+</section>

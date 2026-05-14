@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ 'Gift Card' }} — {{ shop.name }}</title>
+  {{ 'lowkey.css' | asset_url | stylesheet_tag }}
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  {{ content_for_header }}
+</head>
+<body class="grain" style="background:#0D0D0D;color:#E6E2DB;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Inter',sans-serif">
+  <div style="text-align:center;padding:2rem;max-width:24rem">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;letter-spacing:0.5em;margin-bottom:0.5rem">LOWKEY</h1>
+    <p style="font-size:0.5rem;letter-spacing:0.5em;text-transform:uppercase;color:rgba(198,169,108,0.5);margin-bottom:2rem">Gift Card</p>
+    {%- if gift_card.image -%}
+      <img src="{{ gift_card.image | image_url: width: 400 }}" alt="Gift card" style="width:100%;border-radius:4px;margin-bottom:2rem">
+    {%- endif -%}
+    <p style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:300;margin-bottom:1rem">{{ gift_card.initial_value | money }}</p>
+    <p style="font-size:0.75rem;color:rgba(230,226,219,0.5);letter-spacing:0.15em;margin-bottom:0.5rem">{{ gift_card.code }}</p>
+    {%- if gift_card.balance != gift_card.initial_value -%}
+      <p style="font-size:0.625rem;color:rgba(230,226,219,0.3)">Balance: {{ gift_card.balance | money }}</p>
+    {%- endif -%}
+    {%- if gift_card.expired -%}
+      <p style="font-size:0.625rem;color:rgba(255,100,100,0.6);margin-top:1rem">Expired</p>
+    {%- endif -%}
+    <a href="{{ shop.url }}" style="display:inline-block;margin-top:2rem;padding:1rem 2rem;border:1px solid rgba(198,169,108,0.18);color:rgba(198,169,108,0.5);font-size:0.5625rem;letter-spacing:0.4em;text-transform:uppercase;text-decoration:none">Shop Now</a>
+  </div>
+</body>
+</html>
